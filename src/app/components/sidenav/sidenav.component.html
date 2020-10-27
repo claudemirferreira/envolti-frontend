@@ -1,0 +1,33 @@
+<mat-sidenav-container fullscreen>
+
+  <div class="example-sidenav-content" color="primary">
+   <mat-toolbar color="primary" role="heading">
+     <button mat-icon-button (click)="sidenav.toggle()">
+       <mat-icon>menu</mat-icon>
+     </button>
+     <button mat-button>Envolti</button>
+   </mat-toolbar>
+ </div>
+
+  <mat-sidenav  color="primary"  #sidenav  mode="side" class="example-sidenav" [ngStyle]="{ 'width.em': sidenavWidth }" opened="true" (mouseenter)="increase()"
+    (mouseleave)="decrease()">
+    <div class="logomain">Menu</div>
+
+    <mat-nav-list>
+
+      <mat-list-item routerLinkActive="active" routerLink="/list-pessoa">
+        <mat-icon mat-list-icon>description</mat-icon>
+        <div fxFlex="10"></div>
+        <div class="sidenav-item">
+          <h5 class="lead">Pessoa</h5>
+        </div>
+      </mat-list-item>
+
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+
+  <router-outlet></router-outlet>
+
+</mat-sidenav-container>

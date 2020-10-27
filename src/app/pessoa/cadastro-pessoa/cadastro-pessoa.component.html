@@ -1,0 +1,65 @@
+<div style="margin-left: 20px;">
+  <h3>Cadastro de Pessoa</h3>
+  <div class="example-container">
+
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Nome</mat-label>
+        <input class="example-full-width"
+          matInput
+          [(ngModel)]="pessoa.nome"
+          appearance="fill"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>CPF</mat-label>
+        <input
+          matInput
+          [(ngModel)]="pessoa.cpf"
+          appearance="fill"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Sexo</mat-label>
+        <mat-select matInput [(ngModel)]="pessoa.sexo">
+          <mat-option>Sexo</mat-option>
+          <mat-option *ngFor="let sexo of sexos" [value]="sexo">{{sexo}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          [(ngModel)]="pessoa.email"
+          type="email"
+          appearance="fill"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Naturalidade</mat-label>
+        <input
+          matInput
+          [(ngModel)]="pessoa.naturalidade"
+          appearance="fill"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Nacionalidade</mat-label>
+        <input
+          matInput
+          [(ngModel)]="pessoa.nacionalidade"
+          appearance="fill"
+        />
+      </mat-form-field>
+
+      <mat-card-actions>
+        <button mat-raised-button (click) ="salvar()">
+          <mat-icon>check_circle</mat-icon>Salvar</button>
+      </mat-card-actions>
+
+  </div>
+</div>

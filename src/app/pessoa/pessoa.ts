@@ -11,5 +11,6 @@ export class Pessoa {
 	cpf: string;
 	dataCadastro: Date;
 	dataAtualizacao: Date;
+	dataNascimento: Date;
 
 }

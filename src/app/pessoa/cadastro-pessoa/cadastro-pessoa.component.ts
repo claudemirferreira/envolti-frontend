@@ -26,9 +26,10 @@ export class CadastroPessoaComponent implements OnInit {
   formGroup: FormGroup;
   errorMatcher = new CrossFieldErrorMatcher();
 
-  sexos: string[] = [
-    'M', 'F'
-  ];
+  date = new FormControl(new Date());
+  serializedDate = new FormControl((new Date()).toISOString());
+
+  sexos: string[] = ['M', 'F'];
 
   constructor(
     private service : PessoaService,

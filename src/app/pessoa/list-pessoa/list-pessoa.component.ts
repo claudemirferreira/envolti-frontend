@@ -89,13 +89,14 @@ export class ListPessoaComponent implements OnInit {
     this.pessoa = pessoa;
     console.log(JSON.stringify(pessoa));
     const dialogRef = this.dialog.open(CadastroPessoaComponent, {
-      width: '650px',
+      width: '750px',
       data: this.pessoa
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       this.pessoa = result;
+      this.ngOnInit();
     });
   }
 

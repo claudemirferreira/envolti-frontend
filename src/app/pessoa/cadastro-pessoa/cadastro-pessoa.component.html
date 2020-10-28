@@ -2,7 +2,7 @@
   <h3>Cadastro de Pessoa</h3>
   <div class="example-container">
 
-      <mat-form-field appearance="fill" class="example-full-width">
+      <mat-form-field appearance="fill" class="example-50-width">
         <mat-label>Nome</mat-label>
         <input class="example-full-width"
           matInput
@@ -11,7 +11,7 @@
         />
       </mat-form-field>
 
-      <mat-form-field appearance="fill" class="example-full-width">
+      <mat-form-field appearance="fill" class="example-30-width">
         <mat-label>CPF</mat-label>
         <input
           matInput
@@ -20,7 +20,14 @@
         />
       </mat-form-field>
 
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="fill" class="example-30-width">
+        <mat-label>Data de Nascimento</mat-label>
+        <input matInput [matDatepicker]="picker1" [formControl]="date" [(ngModel)]="pessoa.dataNascimento">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="example-20-width">
         <mat-label>Sexo</mat-label>
         <mat-select matInput [(ngModel)]="pessoa.sexo">
           <mat-option>Sexo</mat-option>
@@ -28,17 +35,7 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field appearance="fill" class="example-full-width">
-        <mat-label>Email</mat-label>
-        <input
-          matInput
-          [(ngModel)]="pessoa.email"
-          type="email"
-          appearance="fill"
-        />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" class="example-full-width">
+      <mat-form-field appearance="fill" class="example-30-width">
         <mat-label>Naturalidade</mat-label>
         <input
           matInput
@@ -47,11 +44,21 @@
         />
       </mat-form-field>
 
-      <mat-form-field appearance="fill" class="example-full-width">
+      <mat-form-field appearance="fill" class="example-30-width">
         <mat-label>Nacionalidade</mat-label>
         <input
           matInput
           [(ngModel)]="pessoa.nacionalidade"
+          appearance="fill"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="example-50-width">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          [(ngModel)]="pessoa.email"
+          type="email"
           appearance="fill"
         />
       </mat-form-field>

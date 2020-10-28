@@ -7,6 +7,19 @@
 .example-full-width {
   width: 100%;
 }
+
+.example-20-width {
+  width: 20%;
+}
+
+.example-30-width {
+  width: 30%;
+}
+
+.example-50-width {
+  width: 50%;
+}
+
 .mat-form-field {
   margin-top: 16px;
   padding-right: 5px;

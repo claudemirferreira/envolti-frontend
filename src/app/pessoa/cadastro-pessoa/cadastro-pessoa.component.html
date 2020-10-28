@@ -1,72 +1,76 @@
 <div style="margin-left: 20px;">
   <h3>Cadastro de Pessoa</h3>
   <div class="example-container">
+    <form [formGroup]="formGroup" (ngSubmit)="salvar()" novalidate>
 
       <mat-form-field appearance="fill" class="example-50-width">
         <mat-label>Nome</mat-label>
-        <input class="example-full-width"
-          matInput
-          [(ngModel)]="pessoa.nome"
-          appearance="fill"
-        />
+        <input matInput [(ngModel)]="pessoa.nome" formControlName="nome" 
+        maxlength="60" minlength="5" >
+        <mat-error *ngIf="checkError('nome', 'required')">nome is required</mat-error>
+        <mat-error *ngIf="checkError('nome', 'minlength')">nome should be more than 5 characters</mat-error>
+        <mat-error *ngIf="checkError('nome', 'maxlength')">nome should be less than 60 characters</mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="example-30-width">
         <mat-label>CPF</mat-label>
-        <input
-          matInput
-          [(ngModel)]="pessoa.cpf"
-          appearance="fill"
-        />
+        <input matInput [(ngModel)]="pessoa.cpf" formControlName="cpf" 
+        maxlength="11" minlength="11" >
+        <mat-error *ngIf="checkError('cpf', 'required')">cpf is required</mat-error>
+        <mat-error *ngIf="checkError('cpf', 'minlength')">cpf should be more than 5 characters</mat-error>
+        <mat-error *ngIf="checkError('cpf', 'maxlength')">cpf should be less than 60 characters</mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="example-30-width">
         <mat-label>Data de Nascimento</mat-label>
-        <input matInput [matDatepicker]="picker1" [formControl]="date" [(ngModel)]="pessoa.dataNascimento">
+        <input matInput [matDatepicker]="picker1" formControlName="dataNascimento" [(ngModel)]="pessoa.dataNascimento">
         <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
         <mat-datepicker #picker1></mat-datepicker>
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="example-20-width">
         <mat-label>Sexo</mat-label>
-        <mat-select matInput [(ngModel)]="pessoa.sexo">
-          <mat-option>Sexo</mat-option>
+        <mat-select matInput [(ngModel)]="pessoa.sexo" formControlName="sexo">
           <mat-option *ngFor="let sexo of sexos" [value]="sexo">{{sexo}}</mat-option>
         </mat-select>
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="example-30-width">
         <mat-label>Naturalidade</mat-label>
-        <input
-          matInput
+        <input matInput
           [(ngModel)]="pessoa.naturalidade"
-          appearance="fill"
-        />
+          formControlName="naturalidade"/>
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="example-30-width">
         <mat-label>Nacionalidade</mat-label>
-        <input
-          matInput
-          [(ngModel)]="pessoa.nacionalidade"
-          appearance="fill"
-        />
+        <input matInput
+          [(ngModel)]="pessoa.nacionalidade" 
+          formControlName="nacionalidade"/>
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="example-50-width">
         <mat-label>Email</mat-label>
-        <input
-          matInput
+        <input matInput
           [(ngModel)]="pessoa.email"
           type="email"
-          appearance="fill"
-        />
+          [(ngModel)]="pessoa.email"
+          [errorStateMatcher]="matcher"
+          placeholder="informe o email"          
+          maxlength="60"
+          formControlName = "email">
+        <mat-hint>Errors appear instantly!</mat-hint>
+        
       </mat-form-field>
 
       <mat-card-actions>
-        <button mat-raised-button (click) ="salvar()">
+        
+        <button mat-raised-button [disabled]="!formGroup.valid">
           <mat-icon>check_circle</mat-icon>Salvar</button>
-      </mat-card-actions>
 
+      </mat-card-actions>
+    </form>
   </div>
+  <div>{{ formGroup.value | json}}</div>
+  <div>{{ formGroup.valid | json }}</div>
 </div>
